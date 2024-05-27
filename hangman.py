@@ -158,3 +158,6 @@ def main():
 
     while playAgain == "yes":
         main() #recursively calls main to play again
+
+if __name__ == "__main__":
+    main()
