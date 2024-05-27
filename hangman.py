@@ -21,10 +21,26 @@ def play(word):
     print("\n")
 
     while not guessed and tries > 0:
-        letter = input("Please guess a letter or word")
-        if(len(letter) > 1):
-            guessedWords.append(letter)
-        guessedLetters.append(letter)
+        guess = input("Please guess a letter or word: ").upper()
+        if(len(guess) == len(word) and guess.isalpha()):
+            guessedWords.append(guess)
+        elif (len(guess) == 1 and guess.isalpha()):
+            for i in word:
+                if i == guess and guess not in guessedLetters:
+                    guessedLetters.append(guess)
+                    wordCompleted = "_"
+            if(guess in guessedLetters):
+                print("You already guessed the letter ", guess)
+                
+            elif(guess not in word):
+                print("Guess is not in the word ")
+                tries -= 1
+        else:
+            print("Please enter a letter or word")
+
+        print("Number of tries left ", displayHangman(tries))
+        print(wordCompleted)
+
 
 #displays the hangman in different stages as the user guesses
 #needed help from: https://github.com/kiteco/python-youtube-code/blob/master/build-hangman-in-python/hangman.py
