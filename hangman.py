@@ -23,7 +23,16 @@ def play(word):
     while not guessed and tries > 0:
         guess = input("Please guess a letter or word: ").upper()
         if(len(guess) == len(word) and guess.isalpha()):
-            guessedWords.append(guess)
+            if(guess in guessedWords):
+                print(guess, " has already been guessed")
+            elif(guess != word):
+                print(guess, " is not the right word")
+                guessedWords.append(guess)
+                tries -= 1
+            elif (guess == word):
+                print("You successfuly guessed the word!")
+                guessed = True #break out of loop  
+
         elif (len(guess) == 1 and guess.isalpha()): #condition for guessing a letter
             if(guess in guessedLetters):
                 print("You already guessed the letter ", guess)
