@@ -32,7 +32,7 @@ def play(word):
             elif (guess == word):
                 print("You successfuly guessed the word!")
                 guessed = True #break out of loop  
-
+                wordCompleted = word
         elif (len(guess) == 1 and guess.isalpha()): #condition for guessing a letter
             if(guess in guessedLetters):
                 print("You already guessed the letter ", guess)
