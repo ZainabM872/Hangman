@@ -153,4 +153,8 @@ def main():
     word = getWord() #get a word
     play(word)
 
-    #
+    #give the user the option to play again
+    playAgain = input("Do you want to play again? Enter yes or no: ").lower()
+
+    while playAgain == "yes":
+        main() #recursively calls main to play again
