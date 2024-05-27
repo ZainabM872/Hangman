@@ -66,6 +66,13 @@ def play(word):
 
         print("Number of tries left ", displayHangman(tries))
         print(wordCompleted)
+        print("\n")
+    
+    if guessed:
+        print("You guessed the word successfully! You win!")
+    else:
+        print("You ran out of tries. The word was ", word)
+
 
 
 #displays the hangman in different stages as the user guesses
@@ -143,3 +150,5 @@ def displayHangman(tries):
                 """
     ]
     return stages[tries] #depending on how many tries are left, it returns an index in the list
+
+
