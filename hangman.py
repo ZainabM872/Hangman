@@ -24,7 +24,7 @@ def play(word):
         guess = input("Please guess a letter or word: ").upper()
         if(len(guess) == len(word) and guess.isalpha()):
             guessedWords.append(guess)
-        elif (len(guess) == 1 and guess.isalpha()):
+        elif (len(guess) == 1 and guess.isalpha()): #condition for guessing a letter
             if(guess in guessedLetters):
                 print("You already guessed the letter ", guess)
                 
