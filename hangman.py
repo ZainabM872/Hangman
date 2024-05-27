@@ -14,6 +14,18 @@ def play(word):
     guessedWords = [] #holds the words the user guessed to avoid repeats
     tries = 6 #number of body parts left to be drawn on hangman before user loses
 
+    print("Welcome to the hangman game!")
+    print("The game will run until you guess the word or run out of tries")
+    print("Number of tries left ", displayHangman(tries))
+    print(wordCompleted)
+    print("\n")
+
+    while not guessed and tries > 0:
+        letter = input("Please guess a letter or word")
+        if(len(letter) > 1):
+            guessedWords.append(letter)
+        guessedLetters.append(letter)
+
 #displays the hangman in different stages as the user guesses
 #needed help from: https://github.com/kiteco/python-youtube-code/blob/master/build-hangman-in-python/hangman.py
 def displayHangman(tries):
