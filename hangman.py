@@ -25,16 +25,33 @@ def play(word):
         if(len(guess) == len(word) and guess.isalpha()):
             guessedWords.append(guess)
         elif (len(guess) == 1 and guess.isalpha()):
-            for i in word:
-                if i == guess and guess not in guessedLetters:
-                    guessedLetters.append(guess)
-                    wordCompleted = "_"
             if(guess in guessedLetters):
                 print("You already guessed the letter ", guess)
                 
             elif(guess not in word):
-                print("Guess is not in the word ")
+                print(guess, " is not in the word ")
                 tries -= 1
+                guessedLetters.append(guess)
+            elif(guess in word):
+                print(guess, " is in the word! ")
+                guessedLetters.append(guess)
+                wordToList = list(wordCompleted) #convert the word to a list so we can index into it
+                #this is necessary because strings are immutable
+
+                guessOccurence = [] #stores the indexes of where the guess occurs in the word
+                for i in range(len(word)):
+                    if word[i] == guess:
+                        guessOccurence.append(i)
+                for i in range(len(guessOccurence)):
+                    wordToList[guessOccurence[i]] = guess #replace the _ with guess
+                
+                wordCompleted = ''.join(wordToList) #convert the list back into a string and update wordCompleted
+
+                #if the guess completes the word
+                if("_" not in wordCompleted):
+                    print("You guessed the word successfully!")
+                    guessed = True #break out of loop
+
         else:
             print("Please enter a letter or word")
 
