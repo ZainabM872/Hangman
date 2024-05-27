@@ -6,7 +6,7 @@ def getWord():
     word = random.choice(word_list)
     return word.upper() #return the chosen work in uppercase to make comparison easier.
 
-#
+#logic for the game
 def play(word):
     wordCompleted = "_" * len(word) #initialize the word with _ for evry unguessed letter
     guessed = False
@@ -72,8 +72,6 @@ def play(word):
         print("You guessed the word successfully! You win!")
     else:
         print("You ran out of tries. The word was ", word)
-
-
 
 #displays the hangman in different stages as the user guesses
 #needed help from: https://github.com/kiteco/python-youtube-code/blob/master/build-hangman-in-python/hangman.py
@@ -151,4 +149,8 @@ def displayHangman(tries):
     ]
     return stages[tries] #depending on how many tries are left, it returns an index in the list
 
+def main():
+    word = getWord() #get a word
+    play(word)
 
+    #
