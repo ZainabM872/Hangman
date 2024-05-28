@@ -42,7 +42,7 @@ def play(word):
                 tries -= 1
                 guessedLetters.append(guess)
             elif(guess in word):
-                print(guess, " is in the word! ")
+                print(guess, "is in the word! ")
                 guessedLetters.append(guess)
                 wordToList = list(wordCompleted) #convert the word to a list so we can index into it
                 #this is necessary because strings are immutable
@@ -64,14 +64,15 @@ def play(word):
         else:
             print("Please enter a letter or word")
 
-        print("Number of tries left ", displayHangman(tries))
+        print("Number of tries left:", tries)
+        print(displayHangman(tries))
         print(wordCompleted)
         print("\n")
     
     if guessed:
         print("You guessed the word successfully! You win!")
     else:
-        print("You ran out of tries. The word was ", word)
+        print("You ran out of tries. The word was", word)
 
 #displays the hangman in different stages as the user guesses
 #needed help from: https://github.com/kiteco/python-youtube-code/blob/master/build-hangman-in-python/hangman.py
@@ -158,6 +159,7 @@ def main():
 
     while playAgain == "yes":
         main() #recursively calls main to play again
+    print("Thank you for playing") #if they say no to playing again
 
-if __name__ == "__main__":
+if __name__ == "__main__": #from the command line, the name variable is set to main
     main()
